@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission to Mars</title>
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</head>
+
+
+<body>
+    <div class="jumbotron text-center jumbotron-fluid">
+        <div class="container-fluid">
+          <h1 class="display-4">Mission to Mars</h1>
+          <hr class="my-4">
+          <a class="btn btn-danger btn-md" href="/scrape" role="button">Scrape Web for Data</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <h3 style="color:rgb(138, 21, 21);">Latest Mars News</h3>
+          <h4>{{mars_data.news_title}}</h4>
+          <p>{{mars_data.news_p}}</p>
+          <br>
+        </div>
+      </div>
+
+      <h3 style="color:rgb(138, 21, 21);">Featured Mars Image</h3>
+      <div class="row">
+        <div class="col-lg-9 col-md-12">
+          <img class="feature" src={{mars_data.featured_image_url}} alt="featured_image">
+        </div>
+        <br>
+        <div class="col-lg-3 col-md-12">
+          <div class="card" style="width: 100%;">
+            <div class="card-body">
+              <h5 class="card-title" style="color:rgb(138, 21, 21)">Current Weather on Mars</h5>
+              <p class="card-text">{{mars_data.mars_weather}}</p>
+            </div>
+          </div>
+          <br>
+          <h5 class="text-center" style="color:rgb(138, 21, 21)">Mars Facts</h5>
+          <table class="table table-dark">
+            <tbody>
+              <tr>
+                <th>Equatorial Diameter:</th>
+                <td>6,792 km</td>
+              </tr>
+              <tr>
+                <th>Polar Diameter:</th>
+                <td>6,752 km</td>
+              </tr>
+              <tr>
+                <th>Mass:</th>
+                <td>6.39 × 10^23 kg (0.11 Earths)</td>
+              </tr>
+              <tr>
+                <th>Moons:</th>
+                <td>2 (Phobos &amp; Deimos)</td>
+              </tr>
+              <tr>
+                <th>Orbit Distance:</th>
+                <td>227,943,824 km (1.38 AU)</td>
+              </tr>
+              <tr>
+                <th>Orbit Period:</th>
+                <td>687 days (1.9 years)</td>
+              </tr>
+              <tr>
+                <th>Surface Temperature:</th>
+                <td>-87 to -5 °C</td>
+              </tr>
+              <tr>
+                <th>First Record:</th>
+                <td>2nd millennium BC</td>
+              </tr>
+              <tr>
+                <th>Recorded By:</th>
+                <td>Egyptian astronomers</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <br>
+
+      <h3 style="color:rgb(138, 21, 21); text-align: center; margin-top: 1rem;">Mars Hemispheres</h3>
+      <hr style="border-color: lightslategray;">
+        <div class="container-fluid">
+          <div class="row">
+            {% for item in mars_data.hemisphere_image_urls %}
+            <div class="col-lg-6 col-md-6">
+              <div class="card" style="width: 100%;">
+                <img src={{item.img_url}} class="card-img-top" alt={{item.title}}>
+                <div class="card-body">
+                  <p class="card-text" style="font-weight: bold; font-size: large; text-align: center;">{{item.title}}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      <br>
+
+
+</body>
+
+</html>

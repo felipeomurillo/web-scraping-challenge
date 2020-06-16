@@ -1,0 +1,47 @@
+body{
+    font-family: 'Orbitron', sans-serif;
+    background-color: #fafafa;
+    color: black;
+}
+
+.container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+    width: 100%;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.jumbotron {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    background-color:black;
+    color: #fafafa;
+    border-radius: .3rem;
+}
+
+hr.my-4 { 
+    background-color:#fafafa; 
+    height: 1px; 
+    border: 0; 
+}
+
+.btn-danger {
+    color: #fafafa;
+    background-color: rgb(138, 21, 21);
+    border-color: rgb(82, 80, 80);
+}
+
+img.feature {
+    width: 100%;
+    height: 100%;
+    border: solid #fafafa;
+    border-width: 1pt;
+    }
+
+.row {
+    margin-top: 1rem;
+}
+
+h3, h5 {
+    font-weight: bold;
+}
